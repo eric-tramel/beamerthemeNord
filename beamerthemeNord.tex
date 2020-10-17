@@ -8,18 +8,24 @@
 
 \documentclass[compress]{beamer}
 
-\usepackage[english]{babel}
+%\usepackage[mathbf]{euler}
+\usepackage{amsmath, amssymb}
+\usepackage{amsfonts}
+%\usepackage[english]{babel}
 \usepackage{metalogo}
 \usepackage{listings}
+\PassOptionsToPackage{no-math}{fontspec}
 \usepackage{fontspec}
+\usepackage{mathpazo}
 \usepackage{tikz}
+\usepackage{bm}
 
 \usetheme{Nord}
 % \usetheme[style=light]{Nord}
 
-\setmainfont{Yanone Kaffeesatz}
-\setsansfont{Andika New Basic}
-\setmonofont{DejaVu Sans Mono}
+\setmainfont{Futura}
+\setsansfont{Helvetica Neue}
+\setmonofont{Fira Code}
 
 \AtBeginSection[]
 {
@@ -117,6 +123,7 @@
     \[
       a^2 + b^2 = c^2
     \]
+    $$\int_0^{\infty}~~ {\rm d}x~  p(\theta \Theta \Omega \beta| x) p(x)$$
   \end{block}
   \begin{exampleblock}{This is an Example Block}
     \[
