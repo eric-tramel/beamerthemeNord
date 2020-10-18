@@ -27,9 +27,15 @@
 
 \setbeamertemplate{caption}{\insertcaption}
 
-\setbeamertemplate{itemize item}{$\ast$}
-\setbeamertemplate{itemize subitem}{$\ast$}
-\setbeamertemplate{itemize subsubitem}{$\ast$}
+
+% Making some geometry
+\newcommand\nordbulletfilled{$\bullet$}
+\newcommand\nordbullethollow{$\circ$}
+
+
+\setbeamertemplate{itemize item}{\nordbulletfilled}
+\setbeamertemplate{itemize subitem}{\nordbulletfilled}
+\setbeamertemplate{itemize subsubitem}{\nordbulletfilled}
 \setbeamertemplate{frametitle}{
   {\usebeamercolor[fg]{normal text} \mdseries >> }~\boldmath\insertframetitle%
   \hfill\ifx\insertframesubtitle\@empty\else{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\fi
@@ -66,8 +72,8 @@
 \setbeamertemplate{section in toc}{
   \inserttocsection\\\smallskip
 }
-\setbeamertemplate{subsection in toc}{~$\ast$~~\inserttocsubsection\\\smallskip}
-\setbeamertemplate{subsection in toc shaded}[default][100]
+\setbeamertemplate{subsection in toc}{~\nordbulletfilled~~\inserttocsubsection\\\smallskip}
+\setbeamertemplate{subsection in toc shaded}{~\nordbullethollow~~\inserttocsubsection\\\smallskip}
 
 % block
 \setbeamertemplate{blocks}[rounded][shadow=false]
