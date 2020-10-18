@@ -35,14 +35,15 @@
 
 %%%%% create alias for colors according to usage
 \DeclareOptionBeamer{style}{\def\beamer@nordtheme@style{#1}}
-\ExecuteOptionsBeamer{style=dark} % `dark` will be default if nothing is given
+\ExecuteOptionsBeamer{style=darkenhanced} % `dark` will be default if nothing is given
 \ProcessOptionsBeamer
 
 \def\beamer@nordtheme@styledark{dark}%
+\def\beamer@nordtheme@styledarkenhanced{darkenhanced}%
 \def\beamer@nordtheme@stylelight{light}%
 
 
-\colorlet{ColorAlertedText}{NordRed}
+\colorlet{ColorAlertedText}{NordOrange}
 \colorlet{ColorSubtitle}{NordBlue}
 \colorlet{ColorSubsectionInToc}{ColorSubtitle}
 
@@ -83,7 +84,28 @@
     \colorlet{ColorExampleBlockBodyFg}{ColorText}
     \colorlet{ColorAlertedBlockBodyFg}{ColorText}
   \else%
-    \PackageError{beamercolorthemeNord}{Unknow style option `\beamer@nordtheme@style`}{extra help}
+    \ifx\beamer@nordtheme@style\beamer@nordtheme@styledarkenhanced%
+      \colorlet{ColorBackground}{NordBlack}
+      \colorlet{ColorText}{NordBrightestWhite}
+      \colorlet{ColorExampleText}{NordBrightCyan}
+      \colorlet{ColorStructure}{NordCyan}
+      \colorlet{ColorTitle}{NordGreen}
+      \colorlet{ColorSubsectionInTocShaded}{NordCyan!20!NordBrightBlack}
+      \colorlet{ColorItemizeItem}{NordGreen}
+      \colorlet{ColorBlockTitleBg}{NordBrightBlack}
+      \colorlet{ColorExampleBlockTitleBg}{NordCyan}
+      \colorlet{ColorExampleBlockTitleFg}{NordBrightBlack}
+      \colorlet{ColorAlertedBlockTitleBg}{NordOrange}
+      \colorlet{ColorAlertedBlockTitleFg}{NordBrightBlack}
+      \colorlet{ColorBlockBodyBg}{NordBrightBlack}
+      \colorlet{ColorExampleBlockBodyBg}{NordCyan}
+      \colorlet{ColorAlertedBlockBodyBg}{NordOrange}
+      \colorlet{ColorBlockBodyFg}{ColorText}
+      \colorlet{ColorExampleBlockBodyFg}{ColorText}
+      \colorlet{ColorAlertedBlockBodyFg}{ColorText}
+    \else
+      \PackageError{beamercolorthemeNord}{Unknow style option `\beamer@nordtheme@style`}{extra help}
+    \fi%
   \fi%
 \fi%
 
@@ -116,13 +138,13 @@
 \setbeamercolor*{section in head/foot}{bg=ColorBackground, fg=ColorSectionInHeadFoot}
 
 \setbeamercolor{block title}{bg=ColorBlockTitleBg,fg=NordGreen}
-\setbeamercolor{block title example}{bg=ColorExampleBlockTitleBg,parent={example text}}
-\setbeamercolor{block title alerted}{bg=ColorAlertedBlockTitleBg,parent={alerted text}}
+\setbeamercolor{block title example}{bg=ColorExampleBlockTitleBg, fg=ColorExampleBlockTitleFg, parent={example text}}
+\setbeamercolor{block title alerted}{bg=ColorAlertedBlockTitleBg, fg=ColorAlertedBlockTitleFg, parent={alerted text}}
 \setbeamercolor{block body}{bg=ColorBlockBodyBg,fg=ColorBlockBodyFg}
 \setbeamercolor{block body example}{bg=ColorExampleBlockBodyBg,fg=ColorExampleBlockBodyFg}
 \setbeamercolor{block body alerted}{bg=ColorAlertedBlockBodyBg,fg=ColorAlertedBlockBodyFg}
 
-\setbeamercolor{caption}{fg=NordBrightBlue}
+\setbeamercolor{caption}{fg=NordGreen}
 
 \mode
 <all>
